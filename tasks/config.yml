@@ -10,6 +10,7 @@
   when: (properties['content'] | b64decode | regex_search(bbb_hostname, multiline=True, ignorecase=True) != bbb_hostname) or
     _bbb_install.changed or
     _bbb_upgrade.changed
+  # noqa no-handler
   notify: restart bigbluebutton
 
 - name: Update /etc/bigbluebutton akka configs
